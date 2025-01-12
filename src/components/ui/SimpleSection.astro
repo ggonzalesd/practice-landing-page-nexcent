@@ -3,20 +3,47 @@ interface Props {
   title: string;
   description: string;
   class?: string;
+  orientation?: 'center' | 'left' | 'right';
 }
-
-const { title, description, class: className } = Astro.props;
+const {
+  title,
+  description,
+  class: className,
+  orientation = 'center',
+} = Astro.props;
 ---
 
 <section>
   <div class:list={['container flex gap-8 py-10', className]}>
-    <div class='flex flex-grow flex-col gap-4'>
-      <h2 class='max-w-[24ch] text-center text-5xl font-bold text-zinc-700'>
+    <div
+      class:list={[
+        'flex flex-grow flex-col gap-6',
+        { right: 'items-end', center: 'items-center', left: 'items-start' }[
+          orientation
+        ],
+      ]}
+    >
+      <h2
+        class:list={[
+          'w-full max-w-[24ch] text-4xl font-bold text-zinc-700',
+          { right: 'text-end', center: 'text-center', left: 'text-start' }[
+            orientation
+          ],
+        ]}
+      >
         {title}
       </h2>
-      <p class='text-center text-zinc-600'>
+      <p
+        class:list={[
+          'max-w-[70ch] text-zinc-600',
+          { right: 'text-end', center: 'text-center', left: 'text-start' }[
+            orientation
+          ],
+        ]}
+      >
         {description}
       </p>
+      <slot name='extra' />
     </div>
     <slot />
   </div>
