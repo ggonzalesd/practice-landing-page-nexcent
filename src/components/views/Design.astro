@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import LinkButton from '../LinkButton.astro';
+import SimpleSection from '../ui/SimpleSection.astro';
+
+import design from '@/assets/images/design.svg';
+---
+
+<SimpleSection
+  title='The unseen of spreding three years at Pixelgrade'
+  description='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, cumque ratione dolorum, blanditiis pariatur et deserunt esse placeat nam exercitationem sequi odit culpa velit repellat, architecto officiis. Veniam omnis quibusdam fugiat repudiandae exercitationem sequi iusto facilis tenetur labore rem quisquam, saepe soluta doloribus natus placeat animi nobis a. Incidunt, dignissimos.'
+  class='flex flex-row-reverse'
+  orientation='left'
+>
+  <div slot='extra'>
+    <LinkButton href='/design' class='px-6 py-4'>Learn More</LinkButton>
+  </div>
+  <Image src={design} alt='design' />
+</SimpleSection>
