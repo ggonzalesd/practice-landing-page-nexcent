@@ -3,9 +3,10 @@ interface Props {
   disabled?: boolean;
   variant?: 'primary' | 'secondary';
   href?: string;
+  class?: string;
 }
 
-const { variant = 'primary', href, disabled } = Astro.props;
+const { variant = 'primary', href, disabled, class: className } = Astro.props;
 ---
 
 <a
@@ -17,6 +18,7 @@ const { variant = 'primary', href, disabled } = Astro.props;
       primary: 'bg-green-500 text-green-50',
       secondary: 'bg-green-50 text-green-700',
     }[variant],
+    className,
   ]}
 >
   <span>

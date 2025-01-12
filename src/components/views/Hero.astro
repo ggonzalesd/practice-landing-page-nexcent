@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import LinkButton from '../LinkButton.astro';
+
+import heroImage from '@/assets/images/hero.svg';
+---
+
+<section class='bg-zinc-100'>
+  <div class='container flex flex-col items-center py-28'>
+    <div class='flex w-full justify-between'>
+      <div class='flex flex-col gap-6'>
+        <h1 class='max-w-[15ch] text-7xl font-bold text-zinc-700'>
+          Lessons and insights <span class='text-green-500'>from 8 years</span>
+        </h1>
+        <p class='text-zinc-500'>
+          where to grow your business as a photographer: site or social media?
+        </p>
+        <div>
+          <LinkButton class='inline-flex px-7 py-3'> Register </LinkButton>
+        </div>
+      </div>
+      <div class='flex flex-grow justify-center'>
+        <Image src={heroImage} alt='Hero' />
+      </div>
+    </div>
+    <div class='flex justify-center gap-2'>
+      <div class='aspect-square size-2 rounded-full bg-green-500'></div>
+      <div class='aspect-square size-2 rounded-full bg-green-700/25'></div>
+      <div class='aspect-square size-2 rounded-full bg-green-700/25'></div>
+    </div>
+  </div>
+</section>
