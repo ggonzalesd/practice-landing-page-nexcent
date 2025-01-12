@@ -1,24 +1,23 @@
 ---
-import { clientList } from '@/constants/clients.constants';
 import { Image } from 'astro:assets';
+import { clientList } from '@/constants/clients.constants';
+import SimpleSection from '../ui/SimpleSection.astro';
 ---
 
-<section>
-  <div class='container flex flex-col gap-4 py-10'>
-    <h2 class='text-center text-5xl font-bold text-zinc-700'>Our Clients</h2>
-    <p class='text-center text-zinc-600'>
-      We have been working with some Fortune 500+ clients
-    </p>
-    <div class='flex flex-wrap justify-around gap-2 pt-4'>
-      {
-        clientList.map(({ alt, src }) => (
-          <Image
-            class='aspect-square object-contain object-center'
-            alt={alt}
-            src={src}
-          />
-        ))
-      }
-    </div>
+<SimpleSection
+  title='Our Clients'
+  description='We have been working with some Fortune 500+ clients'
+  class='flex-col items-center'
+>
+  <div class='flex w-full flex-wrap justify-around gap-2'>
+    {
+      clientList.map(({ alt, src }) => (
+        <Image
+          class='aspect-square object-contain object-center'
+          alt={alt}
+          src={src}
+        />
+      ))
+    }
   </div>
-</section>
+</SimpleSection>

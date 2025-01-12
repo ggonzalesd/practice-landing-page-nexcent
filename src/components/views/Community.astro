@@ -1,0 +1,61 @@
+---
+import SimpleSection from '../ui/SimpleSection.astro';
+import commPeopleImage from '@/assets/icons/comm-people.svg';
+import commEnterpriseImage from '@/assets/icons/comm-enterprise.svg';
+import commOtherImage from '@/assets/icons/comm-other.svg';
+import { Image } from 'astro:assets';
+
+const community: Array<{
+  src: ImageMetadata;
+  title: string;
+  description: string;
+}> = [
+  {
+    src: commPeopleImage,
+    title: 'Membership Organisations',
+    description:
+      'Our membership managment software provides full automation of membership renewals and payments.',
+  },
+  {
+    src: commEnterpriseImage,
+    title: 'National Associations',
+    description:
+      'Our membership managment software provides full automation of membership renewals and payments.',
+  },
+  {
+    src: commOtherImage,
+    title: 'Clubs And Groups',
+    description:
+      'Our membership managment software provides full automation of membership renewals and payments.',
+  },
+];
+---
+
+<SimpleSection
+  title='Manage your entire community in a single system'
+  description='who is Nextcent for?'
+  class='flex-col items-center'
+>
+  <div class='grid w-full grid-cols-1 sm:grid-cols-3'>
+    {
+      community.map(({ src, title, description }) => (
+        <div class='flex w-full justify-center'>
+          <div class='flex max-w-64 flex-col items-center'>
+            <div class='relative aspect-square size-10'>
+              <Image
+                src={src}
+                alt={title}
+                class='absolute left-0 top-0 aspect-square size-8 object-contain object-center'
+              />
+              <div class='absolute bottom-0 right-0 aspect-square size-8 rounded-br-xl rounded-tl-xl bg-green-800/15' />
+            </div>
+            <h4 class='max-w-[10ch] text-center text-xl font-bold text-zinc-700'>
+              {title}
+            </h4>
+            <p class='text-center text-zinc-600'>{description}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</SimpleSection>
