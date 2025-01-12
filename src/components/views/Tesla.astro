@@ -1,0 +1,66 @@
+---
+import { clientList } from '@/constants/clients.constants';
+import { Image } from 'astro:assets';
+import tesla from '@/assets/images/tesla.png';
+---
+
+<section class='bg-zinc-100'>
+  <div class='container my-5 flex gap-4 py-8'>
+    <div class='flex flex-grow items-center justify-center'>
+      <Image
+        src={tesla}
+        alt='telsa logo'
+        class='aspect-square size-64 object-contain object-center'
+      />
+    </div>
+    <div class='flex flex-col justify-between gap-8'>
+      <p class='max-w-[90ch] text-zinc-600'>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+        maiores esse et distinctio ut, accusamus quas ducimus qui unde ad
+        delectus modi molestiae minus autem quis, eveniet aliquid reprehenderit
+        rerum quaerat dolorem at. Atque adipisci animi sed doloremque earum
+        veritatis magnam sapiente accusamus corporis rerum hic tempore facere
+        nemo officiis cupiditate minima repellat libero, velit quos deserunt!
+        Rerum ratione harum ad, vitae omnis ipsam quos vero consequatur neque
+        cum natus voluptatum! Consectetur debitis laborum iusto ea ducimus quasi
+        necessitatibus vitae iste quisquam vel magni id exercitationem
+        dignissimos, nesciunt dolores velit!
+      </p>
+      <div class='flex flex-col gap-1'>
+        <span class='text-lg font-bold text-green-600'>Tim Smith</span>
+        <span class='text-sm text-zinc-600'
+          >British Dragon Boat Racing Association</span
+        >
+      </div>
+      <div class='flex items-center justify-between gap-10'>
+        <div class='flex flex-grow justify-between gap-2'>
+          {
+            clientList
+              .slice(0, 6)
+              .map(({ alt, src }) => (
+                <Image
+                  class='aspect-square size-8 object-contain object-center'
+                  src={src}
+                  alt={alt}
+                />
+              ))
+          }
+        </div>
+        <a href='/#' class='inline-flex items-center gap-2 text-green-600'>
+          <span>Meet all customers</span>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            width='1024'
+            height='1024'
+            viewBox='0 0 1024 1024'
+            class='size-4'
+            ><path
+              fill='currentColor'
+              d='M754.752 480H160a32 32 0 1 0 0 64h594.752L521.344 777.344a32 32 0 0 0 45.312 45.312l288-288a32 32 0 0 0 0-45.312l-288-288a32 32 0 1 0-45.312 45.312z'
+            ></path></svg
+          >
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
