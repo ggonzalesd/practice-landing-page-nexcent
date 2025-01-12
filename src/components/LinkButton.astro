@@ -1,0 +1,25 @@
+---
+interface Props {
+  disabled?: boolean;
+  variant?: 'primary' | 'secondary';
+  href?: string;
+}
+
+const { variant = 'primary', href, disabled } = Astro.props;
+---
+
+<a
+  aria-disabled={disabled}
+  href={href}
+  class:list={[
+    'select-none rounded-md p-1 px-3 transition-all active:scale-125 aria-disabled:pointer-events-none aria-disabled:saturate-0',
+    {
+      primary: 'bg-green-500 text-green-50',
+      secondary: 'bg-green-50 text-green-700',
+    }[variant],
+  ]}
+>
+  <span>
+    <slot />
+  </span>
+</a>

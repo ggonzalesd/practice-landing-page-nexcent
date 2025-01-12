@@ -1,0 +1,57 @@
+---
+import LinkButton from './LinkButton.astro';
+import Logo from './ui/Logo.astro';
+
+const routes: Array<{ path: string; display: string }> = [
+  {
+    path: '/',
+    display: 'Home',
+  },
+  {
+    path: '/service',
+    display: 'Service',
+  },
+  {
+    path: '/feature',
+    display: 'Feature',
+  },
+  {
+    path: '/product',
+    display: 'Product',
+  },
+  {
+    path: '/testimonial',
+    display: 'Testimonial',
+  },
+  {
+    path: '/faq',
+    display: 'FAQ',
+  },
+];
+---
+
+<div class='h-16'></div>
+<header class='fixed left-0 top-0 h-16 w-full bg-white'>
+  <div class='container flex h-full items-center justify-between'>
+    <Logo class='text-zinc-800' />
+    <!-- Routes -->
+    <nav class='flex h-full items-center'>
+      <ul class='flex gap-4'>
+        {
+          routes.map(({ display, path }) => (
+            <li>
+              <a href={path}>
+                <span>{display}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <!-- Login -->
+    <div class='flex h-full items-center gap-2'>
+      <LinkButton href='/login' variant='secondary'>Login</LinkButton>
+      <LinkButton href='/signup'>Sign Up</LinkButton>
+    </div>
+  </div>
+</header>
