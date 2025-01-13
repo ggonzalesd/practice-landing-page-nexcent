@@ -1,0 +1,51 @@
+---
+import SimpleSection from '../ui/SimpleSection.astro';
+
+import creatingImage from '@/assets/images/creating.png';
+import safeguardingImage from '@/assets/images/safeguarding.png';
+import revampingImage from '@/assets/images/revamping.png';
+import { Image } from 'astro:assets';
+
+const carings = [
+  {
+    src: creatingImage,
+    alt: 'Creating',
+    text: 'Creating Streamlined Safeguarding Process with OneRen',
+  },
+  {
+    src: safeguardingImage,
+    alt: 'Safeguarding',
+    text: 'What are your safeguarding responsabilities and how can you manage them?',
+  },
+  {
+    src: revampingImage,
+    alt: 'Revamping',
+    text: 'Revamping the Membership Model with Triathlon Australia',
+  },
+];
+---
+
+<SimpleSection
+  title='Caring is the new marketing'
+  description="The Nexcent is the best place to read about the latest memership insights trends and more. See who's joining the community, read about how our community are incresing their membership and lot's more."
+  class='flex-col'
+  orientation='center'
+>
+  <div class='grid w-full grid-cols-1 gap-4 sm:grid-cols-3'>
+    {
+      carings.map(({ alt, src, text }) => (
+        <div class='relative flex'>
+          <Image
+            src={src}
+            alt={alt}
+            class='aspect-[36/28] object-cover object-center'
+          />
+          <div class='absolute left-[10%] top-[70%] flex w-[80%] flex-col items-center gap-4 rounded-md bg-zinc-200 p-2 shadow-md shadow-black/20'>
+            <span class='text-center'>{text}</span>
+            <span class='font-bold text-green-600'>Readmore</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</SimpleSection>
